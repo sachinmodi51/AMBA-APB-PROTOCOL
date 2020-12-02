@@ -52,9 +52,8 @@ An AMBA APB implementation typically contains a single APB bridge which is requi
 # List of AMBA APB Signals
 
 | NAME     | Description |
-| ---------|-----------------
-| **PCLK** 
-xyz | The rising edge of PCLK is used to time all transfers |
+| -----|-----------------
+| **PCLK** xyz | The rising edge of PCLK is used to time all transfers |
 |          | on APB.|
 |         
 |          |
