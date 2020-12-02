@@ -51,15 +51,20 @@ An AMBA APB implementation typically contains a single APB bridge which is requi
 
 # List of AMBA APB Signals
 
-| NAME     | Description |
-| -----|-----------------
-| **PCLK** xyz | The rising edge of PCLK is used to time all transfers |
-|          | on APB.|
-|         
-|          |
-|          |
+
+|        Name        |Description                                                  |
+|----------------          |-----------------------------------------------------------|
+|**PCLK** <br> BusClock         |The rising edge of **PCLK** is used to time all transfers on the APB.           |
+|**PRESETn**  <br> APB reset        |The APB bus reset signal is active LOW and this signal will normally be connected directly to the system bus reset signal.
+|**PADDR[31:0]**,<br>APB address bus          | This is the APB address bus, which may be up to 32-bits wide and is driven by the peripheral bus bridge unit.
+|**PSELx** <br>	APB select		|A signal from the secondary decoder, within the peripheral bus bridge unit, to each peripheral bus slave x. This signal indicates that the slave device is selected and a data transfer is required. There is a **PSELx** signal for each bus slave.
+|**PENABLE**<br>APB strobe |This strobe signal is used to time all accesses on the peripheral bus. The enable signal is used to indicate the second cycle of an APB transfer. The rising edge of **PENABLE** occurs in the middle of the APB transfer.
+|**PWRITE**<br>APB transfer direction |When HIGH this signal indicates an APB write access and when LOW a read access.
+|**PRDATA**<br>APB read data bus |The read data bus is driven by the selected slave during read cycles (when  **PWRITE**  is LOW). The read data bus can be up to 32-bits wide.
+|**PWDATA**<br>APB write data bus |The write data bus is driven by the peripheral bus bridge unit during write cycles (when **PWRITE** is HIGH). The write data bus can be up to 32-bits wide.
 
 
 
-- The ARM Advanced Microcontroller Bus Architecture (AMBA) is an open-standard, on-chip interconnect specification for the connection and management of functional blocks in system-on-a-chip (SoC) designs. 
-- AMBA is a set of interconnect protocols for communication among various blocks or IPs in a SoC (System on Chip). The communications are based on Master-Slave protocol.
+
+
+
