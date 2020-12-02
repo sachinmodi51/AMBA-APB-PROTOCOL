@@ -4,6 +4,7 @@ This projects describes design and verification of AMBA APB protocol using veril
 - Introduction
 - AMBA Bus Architecture
 - APB Theory
+- List of Signal
 
 # Introduction
  The ARM Advanced Microcontroller Bus Architecture (AMBA) is an open-standard, on-chip interconnect specification for the connection and management of functional blocks in system-on-a-chip (SoC) designs. 
@@ -48,9 +49,16 @@ An AMBA APB implementation typically contains a single APB bridge which is requi
 
 ![image](https://user-images.githubusercontent.com/75358489/100902304-c52d3d00-34ea-11eb-8759-c25103f85e7e.png)
 
+# List of AMBA APB Signals
 
-
-
+| NAME     | Description |
+| ---------|-----------------
+| **PCLK** 
+xyz | The rising edge of PCLK is used to time all transfers |
+|          | on APB.|
+|         
+|          |
+|          |
 
 
 
