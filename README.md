@@ -1,5 +1,6 @@
 # AMBA-APB-PROTOCOL
 This projects describes design and verification of AMBA APB protocol using verilog in EDA Playground for read and write operation.
+
 # Table of Contents
 - Introduction
 - AMBA Bus Architecture
@@ -94,8 +95,34 @@ For read transfers the data can be driven on to the data bus when  **PWRITE**  i
 |**PENABLE**<br>APB strobe |This strobe signal is used to time all accesses on the peripheral bus. The enable signal is used to indicate the second cycle of an APB transfer. The rising edge of **PENABLE** occurs in the middle of the APB transfer.
 |**PWRITE**<br>APB transfer direction |When HIGH this signal indicates an APB write access and when LOW a read access.
 |**PRDATA**<br>APB read data bus |The read data bus is driven by the selected slave during read cycles (when  **PWRITE**  is LOW). The read data bus can be up to 32-bits wide.
-|**PWDATA**<br>APB write data bus |The write data bus is driven by the peripheral bus bridge unit during write cycles (when **PWRITE** is HIGH). The write data bus can be up to 32-bits wide.
-#sta
+|**PWDATA**<br>APB write data bus |The write data bus is driven by the peripheral bus bridge unit during write cycles (when **PWRITE** is HIGH). The write data bus can be up to 32-bits wide.|
+
+# State diagram of APB
+
+![image](https://user-images.githubusercontent.com/75358489/100916578-f19d8500-34fb-11eb-8ac8-e0dd4905a173.png)
+
+
+
+The state machine operates through the following states:
+
+**IDLE**
+
+This is the default state of the APB.
+
+**SETUP**
+
+When a transfer is required the bus moves into the SETUP state, where the appropriate select signal,  **PSELx**, is asserted. The bus only remains in the SETUP state for one clock cycle and always moves to the ACCESS state on the next rising edge of the clock.
+
+**ACCESS**
+
+The enable signal,  **PENABLE**, is asserted in the ACCESS state. The address, write, select, and write data signals must remain stable during the transition from the SETUP to ACCESS state.
+
+Exit from the ACCESS state is controlled by the  **PREADY**  signal from the slave:
+
+-   If  **PREADY**  is held LOW by the slave then the peripheral bus remains in the ACCESS state.
+    
+-   If  **PREADY**  is driven HIGH by the slave then the ACCESS state is exited and the bus returns to the IDLE state if no more transfers are required. Alternatively, the bus moves directly to the SETUP state if another transfer follows.
+
 
 
 
