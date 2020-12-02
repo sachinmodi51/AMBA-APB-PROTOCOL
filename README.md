@@ -123,6 +123,40 @@ Exit from the ACCESS state is controlled by the  **PREADY**  signal from the sla
     
 -   If  **PREADY**  is driven HIGH by the slave then the ACCESS state is exited and the bus returns to the IDLE state if no more transfers are required. Alternatively, the bus moves directly to the SETUP state if another transfer follows.
 
+# Write cycle
+
+--- fig
+
+At T1, a write transfer starts with address PADDR, write data PWDATA, write signal
+PWRITE, and select signal PSEL, being registered at the rising edge of PCLK. This is called
+the Setup phase of the write transfer.
+At T2, enable signal PENABLE, and ready signal PREADY, are registered at the rising edge
+of PCLK.
+When asserted, PENABLE indicates the start of the Access phase of the transfer.
+When asserted, PREADY indicates that the slave can complete the transfer at the next rising
+edge of PCLK.
+The address PADDR, write data PWDATA, and control signals all remain valid until the
+transfer completes at T3, the end of the Access phase.
+The enable signal PENABLE, is deasserted at the end of the transfer. The select signal PSEL,
+is also deasserted unless the transfer is to be followed immediately by another transfer to the
+same peripheral.
+
+# Read Cycle
+
+---- fig
+
+Figure 3-4 shows a read transfer. The timing of the address, write, select, and enable signals are
+as described in Write transfers on page 3-2. The slave must provide the data before the end of
+the read transfer. Figure 3-4 shows a read transfer. The timing of the address, write, select, and enable signals are
+as described in Write transfers on page 3-2. The slave must provide the data before the end of
+the read transfer. 
+
+
+# Design Methodology
+
+
+
+# Simulation
 
 
 
