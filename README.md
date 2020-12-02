@@ -5,6 +5,7 @@ This projects describes design and verification of AMBA APB protocol using veril
 - AMBA Bus Architecture
 - APB Theory
 - List of Signal
+-
 
 # Introduction
  The ARM Advanced Microcontroller Bus Architecture (AMBA) is an open-standard, on-chip interconnect specification for the connection and management of functional blocks in system-on-a-chip (SoC) designs. 
@@ -49,12 +50,44 @@ An AMBA APB implementation typically contains a single APB bridge which is requi
 
 ![image](https://user-images.githubusercontent.com/75358489/100902304-c52d3d00-34ea-11eb-8759-c25103f85e7e.png)
 
+## APB Bridge
+
+The APB bridge is the only bus master on the AMBA APB. In addition, the APB bridge is also a slave on the higher-level system bus.
+
+The bridge unit converts system bus transfers into APB transfers and performs the following functions:
+-   Latches the address and holds it valid throughout the transfer.
+    
+-   Decodes the address and generates a peripheral select,  **PSELx**. Only one select signal can be active during a transfer.
+    
+-   Drives the data onto the APB for a write transfer.
+    
+-   Drives the APB data onto the system bus for a read transfer.
+    
+-   Generates a timing strobe,  **PENABLE**, for the transfer.
+
+## APB Slave
+
+APB slaves have a simple, yet flexible, interface. The exact implementation of the interface will be dependent on the design style employed and many different options are possible.
+The APB slave interface is very flexible.
+
+For a write transfer the data can be latched at the following points:
+
+-   on either rising edge of  **PCLK**, when  **PSEL**  is HIGH
+    
+-   on the rising edge of  **PENABLE**, when  **PSEL**  is HIGH.
+    
+
+The select signal  **PSELx**, the address  **PADDR**  and the write signal  **PWRITE**  can be combined to determine which register should be updated by the write operation.
+
+For read transfers the data can be driven on to the data bus when  **PWRITE**  is LOW and both  **PSELx**  and  **PENABLE**  are HIGH. While  **PADDR**  is used to determine which register should be read.
+
+
 # List of AMBA APB Signals
 
 
 |        Name        |Description                                                  |
 |----------------          |-----------------------------------------------------------|
-|**PCLK** <br> BusClock         |The rising edge of **PCLK** is used to time all transfers on the APB.           |
+|**PCLK** <br> Bus clock         |The rising edge of **PCLK** is used to time all transfers on the APB.           |
 |**PRESETn**  <br> APB reset        |The APB bus reset signal is active LOW and this signal will normally be connected directly to the system bus reset signal.
 |**PADDR[31:0]**,<br>APB address bus          | This is the APB address bus, which may be up to 32-bits wide and is driven by the peripheral bus bridge unit.
 |**PSELx** <br>	APB select		|A signal from the secondary decoder, within the peripheral bus bridge unit, to each peripheral bus slave x. This signal indicates that the slave device is selected and a data transfer is required. There is a **PSELx** signal for each bus slave.
@@ -62,6 +95,7 @@ An AMBA APB implementation typically contains a single APB bridge which is requi
 |**PWRITE**<br>APB transfer direction |When HIGH this signal indicates an APB write access and when LOW a read access.
 |**PRDATA**<br>APB read data bus |The read data bus is driven by the selected slave during read cycles (when  **PWRITE**  is LOW). The read data bus can be up to 32-bits wide.
 |**PWDATA**<br>APB write data bus |The write data bus is driven by the peripheral bus bridge unit during write cycles (when **PWRITE** is HIGH). The write data bus can be up to 32-bits wide.
+#sta
 
 
 
