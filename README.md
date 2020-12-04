@@ -125,7 +125,7 @@ Exit from the ACCESS state is controlled by the  **PREADY**  signal from the sla
 
 # Write cycle
 
-![image](https://user-images.githubusercontent.com/75358489/101143651-33821480-363d-11eb-836d-f0d5fc0fb618.png)
+![image](https://user-images.githubusercontent.com/75358489/101146274-d12b1300-3640-11eb-8d2b-274f31c485cc.png)
 
 
 - At T1, a write transfer starts with address PADDR, write data PWDATA, write signal
@@ -144,7 +144,7 @@ same peripheral.
 
 # Read Cycle
 
-![image](https://user-images.githubusercontent.com/75358489/101143832-79d77380-363d-11eb-984e-7d6709dd9503.png)
+![image](https://user-images.githubusercontent.com/75358489/101146959-ba38f080-3641-11eb-884b-4e19c0372e8f.png)
 
 
 - Figure 3-4 shows a read transfer. The timing of the address, write, select, and enable signals are
