@@ -125,29 +125,31 @@ Exit from the ACCESS state is controlled by the  **PREADY**  signal from the sla
 
 # Write cycle
 
---- fig
+![image](https://user-images.githubusercontent.com/75358489/101143651-33821480-363d-11eb-836d-f0d5fc0fb618.png)
 
-At T1, a write transfer starts with address PADDR, write data PWDATA, write signal
-PWRITE, and select signal PSEL, being registered at the rising edge of PCLK. This is called
+
+- At T1, a write transfer starts with address PADDR, write data PWDATA, write signal
+- PWRITE, and select signal PSEL, being registered at the rising edge of PCLK. This is called
 the Setup phase of the write transfer.
-At T2, enable signal PENABLE, and ready signal PREADY, are registered at the rising edge
+- At T2, enable signal PENABLE, and ready signal PREADY, are registered at the rising edge
 of PCLK.
-When asserted, PENABLE indicates the start of the Access phase of the transfer.
-When asserted, PREADY indicates that the slave can complete the transfer at the next rising
+- When asserted, PENABLE indicates the start of the Access phase of the transfer.
+- When asserted, PREADY indicates that the slave can complete the transfer at the next rising
 edge of PCLK.
-The address PADDR, write data PWDATA, and control signals all remain valid until the
+- The address PADDR, write data PWDATA, and control signals all remain valid until the
 transfer completes at T3, the end of the Access phase.
-The enable signal PENABLE, is deasserted at the end of the transfer. The select signal PSEL,
+- The enable signal PENABLE, is deasserted at the end of the transfer. The select signal PSEL,
 is also deasserted unless the transfer is to be followed immediately by another transfer to the
 same peripheral.
 
 # Read Cycle
 
----- fig
+![image](https://user-images.githubusercontent.com/75358489/101143832-79d77380-363d-11eb-984e-7d6709dd9503.png)
 
-Figure 3-4 shows a read transfer. The timing of the address, write, select, and enable signals are
+
+- Figure 3-4 shows a read transfer. The timing of the address, write, select, and enable signals are
 as described in Write transfers on page 3-2. The slave must provide the data before the end of
-the read transfer. Figure 3-4 shows a read transfer. The timing of the address, write, select, and enable signals are
+- the read transfer. Figure 3-4 shows a read transfer. The timing of the address, write, select, and enable signals are
 as described in Write transfers on page 3-2. The slave must provide the data before the end of
 the read transfer. 
 
