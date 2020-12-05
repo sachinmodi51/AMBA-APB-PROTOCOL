@@ -2,7 +2,7 @@
 This projects describes design and verification of AMBA APB protocol using verilog in EDA Playground for read and write operation.
 
 # Table of Contents
-- Introduction
+- [Introduction](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#introduction)
 - [AMBA Bus Architecture](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#amba-bus-architecture)
 - APB Theory
 - List of Signal
