@@ -159,18 +159,18 @@ For designing AMBA APB we are using Moore finite state machine(FSM).
 
 First, we need a way to express the FSM in Verilog:
 1. A state encoding for each state.
--  create state encoding with Verilog parameters.
+--  create state encoding with Verilog parameters.
 
 2. A mechanism for keeping track of the current state.
-- create a reg element of the appropriate width and use its value as current state
+-- create a reg element of the appropriate width and use its value as current state
 3. Transitions from state to state.
-- First, we must choose how to store the
+-- First, we must choose how to store the
 information that will tell the FSM what the next state should be on the next rising edge. 
-- Second, we must create a physical means of transitioning from the CurrentState to the next state.
-- Third, we must implement the conditional-transitioning mechanism that will choose what the next state should be and
+-- Second, we must create a physical means of transitioning from the CurrentState to the next state.
+-- Third, we must implement the conditional-transitioning mechanism that will choose what the next state should be and
 under what conditions a transition should be made
 4. Output values based on the current state.
--  assigning output values based on CurrentState.
+--  assigning output values based on CurrentState.
 
 
 # Simulation
