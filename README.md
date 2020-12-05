@@ -162,7 +162,7 @@ as described in Write transfers. The slave must provide the data before the end 
 
 For designing AMBA APB protocol for read and write operation, we are using Moore finite state machine(FSM).
 
-To design FSM, we need a way to express the FSM in Verilog:
+To design FSM, we need a way to express the FSM in Verilog:<br>
 **1.** A state encoding for each state. <br>
 --  create state encoding with Verilog parameters.
 
