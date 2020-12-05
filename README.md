@@ -165,15 +165,31 @@ First, we need a way to express the FSM in Verilog:
 -- create a reg element of the appropriate width and use its value as current state <br>
 3. Transitions from state to state. <br>
 -- First, we must choose how to store the
-information that will tell the FSM what the next state should be on the next rising edge. <br>
+information that will tell the FSM what the   next state should be on the next rising edge. <br>
 -- Second, we must create a physical means of transitioning from the CurrentState to the next state. <br>
--- Third, we must implement the conditional-transitioning mechanism that will choose what the next state should be and 
+-- Third, we must implement the conditional-transitioning mechanism that will choose what the next state   should be and 
 under what conditions a transition should be made. <br>
 4. Output values based on the current state. <br>
 --  assigning output values based on CurrentState. <br>
 
 
-# Simulation
+# Simulation result 
+
+# Future work
+
+- 
+
+# Acknowledgement 
+- Dr.Saroj Rout,Associate Professor,Silicon Institute Of Technology,Bhubaneswar
+- Prof.Santunu Sarangi,Assistant Professor,Silicon Institute Of Technology,Bhubaneswar
+
+# References
+
+[1] https://developer.arm.com/documentation/ihi0011/a/AMBA-APB/APB-slave/APB-slave-description
+
+[2]https://web.eecs.umich.edu/~prabal/teaching/eecs373-f12/readings/ARM_AMBA3_APB.pdf
+
+[3] Samir Palnitkar, “Verilog HDL: A guide to Digital Design and Synthesis (2nd Edition), Pearson, 2008.
 
 
 
