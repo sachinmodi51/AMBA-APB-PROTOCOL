@@ -4,9 +4,18 @@ This projects describes design and verification of AMBA APB protocol using veril
 # Table of Contents
 - [Introduction](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#introduction)
 - [AMBA Bus Architecture](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#amba-bus-architecture)
-- APB Theory
-- List of Signal
-- 
+-[APB Theory](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#apb-theory)
+  - [APB Bridge](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#apb-bridge)
+  - [APB Slave](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#apb-slave)
+- [List of AMBA APB Signal](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#list-of-amba-apb-signals)
+- [State Diagram of APB](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#state-diagram-of-apb)
+  - [Write cycle](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#write-cycle)
+  - [Read cycle](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#read-cycle)
+- [Design Methodology](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#design-methodology)
+- [Simulation Output](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#simulation-result)
+- [Future Work](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#future-work)
+- [Acknowledgement](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#acknowledgement)
+- [References](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#references)
 
 # Introduction
  The ARM Advanced Microcontroller Bus Architecture (AMBA) is an open-standard, on-chip interconnect specification for the connection and management of functional blocks in system-on-a-chip (SoC) designs. 
