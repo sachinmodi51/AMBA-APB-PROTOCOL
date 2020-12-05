@@ -4,11 +4,11 @@ This projects describes design and verification of AMBA APB protocol using veril
 # Table of Contents
 - [Introduction](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#introduction)
 - [AMBA Bus Architecture](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#amba-bus-architecture)
--[APB Theory](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#apb-theory)
+- [APB Theory](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#apb-theory)
   - [APB Bridge](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#apb-bridge)
   - [APB Slave](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#apb-slave)
 - [List of AMBA APB Signal](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#list-of-amba-apb-signals)
-- [State Diagram of APB](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#state-diagram-of-apb)
+- [Operating state of APB](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#state-diagram-of-apb)
   - [Write cycle](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#write-cycle)
   - [Read cycle](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#read-cycle)
 - [Design Methodology](https://github.com/sachinmodi51/AMBA-APB-PROTOCOL#design-methodology)
@@ -30,7 +30,7 @@ AMBA has been proven in and is being designed into:
 - digital mobile communication devices integrating control and signal-processing functions
 
 # AMBA Bus Architecture
-AMBA is a freely-available, open standard for the connection and management of functional blocks in a system-on-chip (SoC). It facilitates right-first-time development of multi-processor designs, with large numbers of controllers and peripherals
+AMBA is a freely-available, open standard for the connection and management of functional blocks in a system-on-chip (SoC). It facilitates right-first-time development of multi-processor designs, with large numbers of controllers and peripherals.
 
 Three distinct buses are defined within the AMBA specification:
 
@@ -106,7 +106,7 @@ For read transfers the data can be driven on to the data bus when  **PWRITE**  i
 |**PRDATA**<br>APB read data bus |The read data bus is driven by the selected slave during read cycles (when  **PWRITE**  is LOW). The read data bus can be up to 32-bits wide.
 |**PWDATA**<br>APB write data bus |The write data bus is driven by the peripheral bus bridge unit during write cycles (when **PWRITE** is HIGH). The write data bus can be up to 32-bits wide.|
 
-# State diagram of APB
+# Operating state of APB
 
 ![image](https://user-images.githubusercontent.com/75358489/100916578-f19d8500-34fb-11eb-8ac8-e0dd4905a173.png)
 
@@ -155,18 +155,14 @@ same peripheral.
 
 ![image](https://user-images.githubusercontent.com/75358489/101235130-ba8dc600-36eb-11eb-8476-42011d671283.png)
 
-- Figure 3-4 shows a read transfer. The timing of the address, write, select, and enable signals are
-as described in Write transfers on page 3-2. The slave must provide the data before the end of
-- the read transfer. Figure 3-4 shows a read transfer. The timing of the address, write, select, and enable signals are
-as described in Write transfers on page 3-2. The slave must provide the data before the end of
-the read transfer. 
-
+- Figure above shows a read transfer. The timing of the address, write, select, and enable signals are
+as described in Write transfers. The slave must provide the data before the end of the read transfer. 
 
 # Design Methodology
 
-For designing AMBA APB we are using Moore finite state machine(FSM).
+For designing AMBA APB protocol for read and write operation, we are using Moore finite state machine(FSM).
 
-First, we need a way to express the FSM in Verilog:
+To design FSM, we need a way to express the FSM in Verilog:
 1. A state encoding for each state. <br>
 --  create state encoding with Verilog parameters.
 
