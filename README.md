@@ -144,7 +144,8 @@ same peripheral.
 
 # Read Cycle
 
-![image](https://user-images.githubusercontent.com/75358489/101146959-ba38f080-3641-11eb-884b-4e19c0372e8f.png)
+![image](https://user-images.githubusercontent.com/75358489/101235130-ba8dc600-36eb-11eb-8476-42011d671283.png)
+
 - Figure 3-4 shows a read transfer. The timing of the address, write, select, and enable signals are
 as described in Write transfers on page 3-2. The slave must provide the data before the end of
 - the read transfer. Figure 3-4 shows a read transfer. The timing of the address, write, select, and enable signals are
