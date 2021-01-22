@@ -179,6 +179,7 @@ under what conditions a transition should be made. <br>
 
 
 # Simulation result 
+![image](images/output-waveform.png)
 
 # Future work
 
